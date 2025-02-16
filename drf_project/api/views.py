@@ -5,7 +5,7 @@ from students.models import Student
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.decorators import APIView
-from rest_framework import status
+from rest_framework import status, viewsets
 from .serializers import studentSerializer, employeeSerializer
 from employees.models import Employee
 from django.http import Http404
@@ -108,6 +108,8 @@ class EmployeeDetail(mixins.RetrieveModelMixin,mixins.UpdateModelMixin,mixins.De
         return self.destroy(request, pk)
 '''
 
+
+'''
 #Genreric
 class Employees(generics.ListCreateAPIView):
     queryset = Employee.objects.all()
@@ -116,3 +118,9 @@ class Employees(generics.ListCreateAPIView):
 class EmployeeDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Employee.objects.all()
     serializer_class = employeeSerializer
+    
+'''
+
+class EmployeeViewSet(viewsets.ModelViewSet):
+    queryset = Employee.objects.all()  # جلب جميع الموظفين
+    serializer_class = employeeSerializer  # تحويل البيانات بين Django و JSON
