@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfea5604-66ed-4d27-a46b-601b01b6077d" name="Changes" comment="Mixins class Employees  &#10;from rest_framework import mixins ,generics&#10;&#10;get --&gt; list &#10;post --&gt; creat">
+    <list default="true" id="cfea5604-66ed-4d27-a46b-601b01b6077d" name="Changes" comment="mixins method to get put delet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
@@ -111,7 +111,7 @@
       <updated>1739717613442</updated>
       <workItem from="1739717614566" duration="179000" />
       <workItem from="1739717814066" duration="658000" />
-      <workItem from="1739718488166" duration="5431000" />
+      <workItem from="1739718488166" duration="6059000" />
     </task>
     <task id="LOCAL-00001" summary="employee app">
       <option name="closed" value="true" />
@@ -177,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739723356377</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="mixins method to get put delet">
+      <option name="closed" value="true" />
+      <created>1739724086941</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1739724086941</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +210,7 @@
     <MESSAGE value="add def put and delete in class EmployeeDetail" />
     <MESSAGE value="comment  calss and all def Employees in view.py" />
     <MESSAGE value="Mixins class Employees  &#10;from rest_framework import mixins ,generics&#10;&#10;get --&gt; list &#10;post --&gt; creat" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mixins class Employees  &#10;from rest_framework import mixins ,generics&#10;&#10;get --&gt; list &#10;post --&gt; creat" />
+    <MESSAGE value="mixins method to get put delet" />
+    <option name="LAST_COMMIT_MESSAGE" value="mixins method to get put delet" />
   </component>
 </project>
