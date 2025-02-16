@@ -127,6 +127,7 @@ class EmployeeDetail(generics.RetrieveUpdateDestroyAPIView):
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()  # جلب جميع الموظفين
     serializer_class = employeeSerializer  # تحويل البيانات بين Django و JSON
+    pagination_class = CustomPagination
 
 
 #Blogs

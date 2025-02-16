@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfea5604-66ed-4d27-a46b-601b01b6077d" name="Changes" comment="Paginations add this is next pages and limit show data">
-      <change beforePath="$PROJECT_DIR$/api/Paginations.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/Paginations.py" afterDir="false" />
+    <list default="true" id="cfea5604-66ed-4d27-a46b-601b01b6077d" name="Changes" comment="creat class Pagination">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +117,7 @@
       <updated>1739717613442</updated>
       <workItem from="1739717614566" duration="179000" />
       <workItem from="1739717814066" duration="658000" />
-      <workItem from="1739718488166" duration="15415000" />
+      <workItem from="1739718488166" duration="16024000" />
     </task>
     <task id="LOCAL-00001" summary="employee app">
       <option name="closed" value="true" />
@@ -238,7 +239,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739736770838</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="creat class Pagination">
+      <option name="closed" value="true" />
+      <created>1739737145683</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1739737145683</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,6 +279,7 @@
     <MESSAGE value="creat app blogs" />
     <MESSAGE value="creat serilize nested loop" />
     <MESSAGE value="Paginations add this is next pages and limit show data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Paginations add this is next pages and limit show data" />
+    <MESSAGE value="creat class Pagination" />
+    <option name="LAST_COMMIT_MESSAGE" value="creat class Pagination" />
   </component>
 </project>
