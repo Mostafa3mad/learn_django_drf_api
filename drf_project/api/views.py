@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 
+from blogs.models import Blog,Comment
 from employees.models import Employee
 from students.models import Student
 from rest_framework.response import Response
@@ -7,6 +8,7 @@ from rest_framework.decorators import api_view
 from rest_framework.decorators import APIView
 from rest_framework import status, viewsets
 from .serializers import studentSerializer, employeeSerializer
+from blogs.Serializer import BlogSerializer,CommentSerializer
 from employees.models import Employee
 from django.http import Http404
 from rest_framework import mixins ,generics
@@ -120,7 +122,25 @@ class EmployeeDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = employeeSerializer
     
 '''
-
+# ModelViewSet
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()  # جلب جميع الموظفين
     serializer_class = employeeSerializer  # تحويل البيانات بين Django و JSON
+
+
+#Blogs
+
+class blogsView(generics.ListCreateAPIView):
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer
+class commentsView(generics.ListCreateAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+
+class blogDetalView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer
+
+class commentDetalView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
