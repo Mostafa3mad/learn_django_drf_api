@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfea5604-66ed-4d27-a46b-601b01b6077d" name="Changes" comment="add class view api get_put id pk">
+    <list default="true" id="cfea5604-66ed-4d27-a46b-601b01b6077d" name="Changes" comment="comment  calss and all def Employees in view.py">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +110,7 @@
       <updated>1739717613442</updated>
       <workItem from="1739717614566" duration="179000" />
       <workItem from="1739717814066" duration="658000" />
-      <workItem from="1739718488166" duration="3122000" />
+      <workItem from="1739718488166" duration="4462000" />
     </task>
     <task id="LOCAL-00001" summary="employee app">
       <option name="closed" value="true" />
@@ -143,7 +144,23 @@
       <option name="project" value="LOCAL" />
       <updated>1739721578101</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add def put and delete in class EmployeeDetail">
+      <option name="closed" value="true" />
+      <created>1739721780446</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1739721780447</updated>
+    </task>
+    <task id="LOCAL-00006" summary="comment  calss and all def Employees in view.py">
+      <option name="closed" value="true" />
+      <created>1739722304924</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1739722304924</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +182,8 @@
     <MESSAGE value="creat_model_employee" />
     <MESSAGE value="creat_employee_serializer_in_api" />
     <MESSAGE value="add class view api get_put id pk" />
-    <option name="LAST_COMMIT_MESSAGE" value="add class view api get_put id pk" />
+    <MESSAGE value="add def put and delete in class EmployeeDetail" />
+    <MESSAGE value="comment  calss and all def Employees in view.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="comment  calss and all def Employees in view.py" />
   </component>
 </project>
