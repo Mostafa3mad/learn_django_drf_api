@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfea5604-66ed-4d27-a46b-601b01b6077d" name="Changes" comment="display paganation  in employee">
+    <list default="true" id="cfea5604-66ed-4d27-a46b-601b01b6077d" name="Changes" comment="coustom filter fields designation">
+      <change afterPath="$PROJECT_DIR$/employees/filters.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_rest_main/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_rest_main/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +118,7 @@
       <updated>1739717613442</updated>
       <workItem from="1739717614566" duration="179000" />
       <workItem from="1739717814066" duration="658000" />
-      <workItem from="1739718488166" duration="16918000" />
+      <workItem from="1739718488166" duration="17573000" />
     </task>
     <task id="LOCAL-00001" summary="employee app">
       <option name="closed" value="true" />
@@ -256,7 +256,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739737638408</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="filter django_filter moduls">
+      <option name="closed" value="true" />
+      <created>1739738601682</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1739738601682</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +298,8 @@
     <MESSAGE value="Paginations add this is next pages and limit show data" />
     <MESSAGE value="creat class Pagination" />
     <MESSAGE value="display paganation  in employee" />
-    <option name="LAST_COMMIT_MESSAGE" value="display paganation  in employee" />
+    <MESSAGE value="filter django_filter moduls" />
+    <MESSAGE value="coustom filter fields designation" />
+    <option name="LAST_COMMIT_MESSAGE" value="coustom filter fields designation" />
   </component>
 </project>

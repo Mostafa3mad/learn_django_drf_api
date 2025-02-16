@@ -13,8 +13,7 @@ from employees.models import Employee
 from django.http import Http404
 from rest_framework import mixins ,generics
 from .Paginations import CustomPagination
-from django_filters.rest_framework import DjangoFilterBackend
-
+from employees.filters import EmployeeFilter
 
 @api_view(['GET', 'POST'])
 def studentsView(request):
@@ -126,12 +125,11 @@ class EmployeeDetail(generics.RetrieveUpdateDestroyAPIView):
 '''
 # ModelViewSet
 class EmployeeViewSet(viewsets.ModelViewSet):
-    queryset = Employee.objects.all()  # جلب جميع الموظفين
-    serializer_class = employeeSerializer  # تحويل البيانات بين Django و JSON
+    queryset = Employee.objects.all()
+    serializer_class = employeeSerializer
     pagination_class = CustomPagination
-    filterset_fields = ['designation']
-
-
+    # filterset_fields = ['designation']
+    filterset_class = EmployeeFilter
 #Blogs
 
 class blogsView(generics.ListCreateAPIView):
