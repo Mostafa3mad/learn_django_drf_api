@@ -12,6 +12,7 @@ from blogs.Serializer import BlogSerializer,CommentSerializer
 from employees.models import Employee
 from django.http import Http404
 from rest_framework import mixins ,generics
+from .Paginations import CustomPagination
 
 
 @api_view(['GET', 'POST'])
