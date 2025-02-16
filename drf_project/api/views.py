@@ -13,6 +13,7 @@ from employees.models import Employee
 from django.http import Http404
 from rest_framework import mixins ,generics
 from .Paginations import CustomPagination
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 @api_view(['GET', 'POST'])
@@ -128,6 +129,7 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()  # جلب جميع الموظفين
     serializer_class = employeeSerializer  # تحويل البيانات بين Django و JSON
     pagination_class = CustomPagination
+    filterset_fields = ['designation']
 
 
 #Blogs
