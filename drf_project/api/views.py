@@ -14,7 +14,7 @@ from django.http import Http404
 from rest_framework import mixins ,generics
 from .Paginations import CustomPagination
 from employees.filters import EmployeeFilter
-from rest_framework.filters import SearchFilter
+from rest_framework.filters import SearchFilter , OrderingFilter
 
 @api_view(['GET', 'POST'])
 def studentsView(request):
@@ -137,8 +137,9 @@ class EmployeeViewSet(viewsets.ModelViewSet):
 class blogsView(generics.ListCreateAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
-    filter_backends = [SearchFilter]
+    filter_backends = [SearchFilter,OrderingFilter]
     search_fields = ['blog_title']
+    ordering_fields = ['id']
 
 class commentsView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
