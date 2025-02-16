@@ -137,6 +137,8 @@ class EmployeeViewSet(viewsets.ModelViewSet):
 class blogsView(generics.ListCreateAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
+    filter_backends = [SearchFilter]
+    search_fields = ['blog_title']
 
 class commentsView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
