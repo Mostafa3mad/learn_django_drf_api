@@ -16,9 +16,11 @@ from .Paginations import CustomPagination
 from employees.filters import EmployeeFilter
 from rest_framework.filters import SearchFilter , OrderingFilter
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from drf_spectacular.utils import extend_schema
 
 
 
+@extend_schema(tags=["students"],)
 @api_view(['GET', 'POST'])
 def studentsView(request):
     if request.method == 'GET':
@@ -33,6 +35,7 @@ def studentsView(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@extend_schema(tags=["students"],)
 @api_view(['GET', 'PUT', 'DELETE'])
 def studentDetalView(request, pk):
     try:
@@ -128,6 +131,7 @@ class EmployeeDetail(generics.RetrieveUpdateDestroyAPIView):
     
 '''
 # ModelViewSet
+@extend_schema(tags=["Employee"],)
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = employeeSerializer
@@ -137,7 +141,7 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAdminUser]
 
 #Blogs
-
+@extend_schema(tags=["Blogs"],)
 class blogsView(generics.ListCreateAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
@@ -145,14 +149,16 @@ class blogsView(generics.ListCreateAPIView):
     search_fields = ['blog_title']
     ordering_fields = ['id']
 
+@extend_schema(tags=["Comment"],)
 class commentsView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-
+@extend_schema(tags=["Blogs"],)
 class blogDetalView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
 
+@extend_schema(tags=["Comment"],)
 class commentDetalView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer

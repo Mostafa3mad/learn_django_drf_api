@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+from drf_spectacular.settings import SPECTACULAR_DEFAULTS
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -144,5 +146,23 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',],
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-
 }
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'E-Commerce API',  # عنوان الـ API
+    'DESCRIPTION': 'A simple Product & Order API that helps us learn Django REST Framework',  # وصف الـ API
+    'VERSION': '1.0.0',  # إصدار الـ API
+    'CONTACT': {
+        'name': 'Your Name',
+        'email': 'your_email@example.com',
+    },  # معلومات الاتصال الخاصة بالـ API
+    'LICENSE': {
+        'name': 'MIT',
+        'url': 'https://opensource.org/licenses/MIT',
+    },  # ترخيص الـ API
+    'LICENSE_URL': 'https://opensource.org/licenses/MIT',  # رابط الترخيص
+    'SCHEMAS': [],  # إذا كنت بحاجة إلى إضافة مخططات إضافية
+    'SERVE_INCLUDE_SCHEMA': False,  # تعطيل أو تمكين عرض الـ schema في الـ Swagger UI
+},
+
+
