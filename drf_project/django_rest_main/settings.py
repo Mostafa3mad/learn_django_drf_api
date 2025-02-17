@@ -46,8 +46,12 @@ INSTALLED_APPS = [
     'blogs',
     'django_filters',
     'rest_framework.authtoken',
-    'drf_spectacular'
+    'drf_spectacular',
+    'persons'
 ]
+# إعدادات لتخزين الصور في Django
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'  # مجلد 'media' في الجذر لتخزين الصور
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
