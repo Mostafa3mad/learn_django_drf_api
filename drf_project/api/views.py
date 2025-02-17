@@ -15,6 +15,9 @@ from rest_framework import mixins ,generics
 from .Paginations import CustomPagination
 from employees.filters import EmployeeFilter
 from rest_framework.filters import SearchFilter , OrderingFilter
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
+
+
 
 @api_view(['GET', 'POST'])
 def studentsView(request):
@@ -131,6 +134,7 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     pagination_class = CustomPagination
     # filterset_fields = ['designation']
     filterset_class = EmployeeFilter
+    permission_classes = [IsAdminUser]
 
 #Blogs
 
