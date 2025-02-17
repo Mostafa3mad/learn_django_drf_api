@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'employees',
     'blogs',
     'django_filters',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -134,5 +135,8 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'SEARCH_PARAM': 'key',
     'ORDERING_PARAM': 'order-by',
-
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        ]
 }

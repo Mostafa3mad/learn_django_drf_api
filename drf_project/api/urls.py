@@ -3,6 +3,9 @@ from . import views
 from rest_framework.routers import DefaultRouter
 
 
+
+
+
 router = DefaultRouter()
 router.register('employees', views.EmployeeViewSet,basename='employee')
 
@@ -18,5 +21,9 @@ urlpatterns = [
     #######################
     path('comments/<int:pk>/', views.commentDetalView.as_view()),
     path('blogs/<int:pk>/', views.blogDetalView.as_view()),
+
+
+
+
 
 ]
