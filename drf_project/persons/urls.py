@@ -1,7 +1,11 @@
-from django.urls import path , include
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 from .views import PersonViewSet
 
 
+router = DefaultRouter()
+router.register('', PersonViewSet, basename='persons')
+
 urlpatterns = [
-    path('api/v1/persons/', PersonViewSet.as_view({'get': 'list'})),
+    path('', include(router.urls)),
 ]
