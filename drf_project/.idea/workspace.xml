@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfea5604-66ed-4d27-a46b-601b01b6077d" name="Changes" comment="uploaid img crud">
-      <change afterPath="$PROJECT_DIR$/../Bank System API/config/bankaccount/signals.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Bank System API/config/bankaccount/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bank System API/config/bankaccount/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Bank System API/config/bankaccount/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bank System API/config/bankaccount/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Bank System API/config/bankaccount/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bank System API/config/bankaccount/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Bank System API/config/bankaccount/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bank System API/config/users/serializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bank System API/config/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Bank System API/config/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Bank System API/config/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bank System API/config/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Bank System API/config/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +150,7 @@
       <workItem from="1739717814066" duration="658000" />
       <workItem from="1739718488166" duration="37340000" />
       <workItem from="1739820853063" duration="4000" />
+      <workItem from="1739884149528" duration="594000" />
     </task>
     <task id="LOCAL-00001" summary="employee app">
       <option name="closed" value="true" />
