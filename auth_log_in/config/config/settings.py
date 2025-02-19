@@ -39,10 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user_auth',
+    'register_user',
 
+    'drf_yasg',
 
+    "rest_framework.authtoken",
+    "rest_registration",
     'rest_framework',
     'rest_framework_simplejwt',
+
 ]
 AUTH_USER_MODEL = 'user_auth.CustomUser'
 
@@ -130,14 +135,39 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+
+
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
 }
 
-from datetime import timedelta
-SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+REST_REGISTRATION = {
+    "REGISTER_VERIFICATION_ENABLED": False,
+    "REGISTER_EMAIL_VERIFICATION_ENABLED": False,
+    "RESET_PASSWORD_VERIFICATION_ENABLED": False,
+    "AUTH_TOKEN_MANAGER_CLASS": "register_user.auth_backend.AuthJWTManager",
+    "REGISTER_SERIALIZER_CLASS": "register_user.serializers.CustomRegisterUserSerializer",
+    'REGISTER_OUTPUT_SERIALIZER_CLASS': 'register_user.serializers.CustomRegisterUserSerializer',
+    'REGISTER_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+
 }
+
+
+
+
+# from datetime import timedelta
+# SIMPLE_JWT = {
+#     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+#     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+#     'AUTH_HEADER_TYPES': ('Bearer',),
+# }
