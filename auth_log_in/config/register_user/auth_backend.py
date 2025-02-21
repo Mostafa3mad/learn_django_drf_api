@@ -6,57 +6,83 @@ from django.contrib.auth import get_user_model
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.authentication import get_authorization_header
 from rest_registration.auth_token_managers import AbstractAuthTokenManager, AuthToken, AuthTokenNotRevoked
+from django.utils.translation import gettext_lazy as _
 from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework_simplejwt.authentication import JWTAuthentication as SimpleJWTAuth
-import json
 
 class AuthJWTManager(AbstractAuthTokenManager):
+
     def get_authentication_class(self) -> Type[BaseAuthentication]:
         return JWTAuthentication
 
     def get_app_names(self) -> Sequence[str]:
-        return ["register_user"]
+        return [
+            'register_user',  # update with your Django app
+        ]
 
-    def provide_token(self, user):
-        # توليد التوكنات (refresh و access)
+    def provide_token(self, user: 'AbstractBaseUser') -> AuthToken:
         refresh = RefreshToken.for_user(user)
-
-        # إعداد التوكنات
         token_dict = {
-            "refresh": str(refresh),  # تحويل refresh token إلى نص
-            "access": str(refresh.access_token)  # تحويل access token إلى نص
+            "access_token": str(refresh.access_token),
+            "refresh_token": str(refresh),
         }
+        return AuthToken(token_dict)
 
-        return {
-            "refresh": token_dict["refresh"],
-            "access": token_dict["access"],
-        }
-
-    def revoke_token(self, user, *, token: Optional[AuthToken] = None) -> None:
+    def revoke_token(
+            self, user: 'AbstractBaseUser', *,
+            token: Optional[AuthToken] = None) -> None:
         raise AuthTokenNotRevoked()
 
 
-class JWTAuthentication(SimpleJWTAuth):
+
+class JWTAuthentication(BaseAuthentication):
+    ALGORITHM = "HS256"
+
     def authenticate(self, request):
+        """
+        Returns a `User` if a correct username and password have been supplied
+        using HTTP Basic authentication.  Otherwise returns `None`.
+        """
         auth = get_authorization_header(request).split()
 
         if not auth or auth[0].lower() != b'bearer':
             return None
 
         if len(auth) == 1:
-            raise AuthenticationFailed("Invalid authorization header. No credentials provided.")
+            msg = _('Invalid authorization header. No credentials provided.')
+            raise AuthenticationFailed(msg)
         if len(auth) > 2:
-            raise AuthenticationFailed("Invalid authorization header. Credentials string should not contain spaces.")
+            msg = _(
+                'Invalid authorization header. Credentials string should not'
+                ' contain spaces.'
+            )
+            raise AuthenticationFailed(msg)
 
-        token = auth[1].decode()
+        encoded_jwt = auth[1]
 
         try:
-            validated_token = self.get_validated_token(token)
-        except Exception:
-            raise AuthenticationFailed("Invalid or expired token.")
+            jwt_data = jwt.decode(
+                encoded_jwt,
+                settings.SECRET_KEY,
+                algorithms=[self.ALGORITHM],
+            )
+        except jwt.ExpiredSignatureError:
+            msg = _('Expired JWT.')
+            raise AuthenticationFailed(msg) from None
+        except jwt.InvalidTokenError:
+            msg = _('Invalid JWT payload.')
+            raise AuthenticationFailed(msg) from None
 
-        user = self.get_user(validated_token)
-        if not user:
-            raise AuthenticationFailed("User not found.")
+        try:
+            user_id = jwt_data["user_id"]
+        except KeyError:
+            msg = _('Missing user info in JWT.')
+            raise AuthenticationFailed(msg) from None
 
-        return (user, token)
+        user_class = get_user_model()
+        try:
+            user = user_class.objects.get(pk=user_id)
+        except user_class.DoesNotExist:
+            msg = _('User not found.')
+            raise AuthenticationFailed(msg) from None
+
+        return (user, encoded_jwt)
