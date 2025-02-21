@@ -1,0 +1,27 @@
+pip freeze > requirements_local.txt pip freeze
+
+
+touch requirements.txt   
+        -r requirements_local.txt
+        gunicorn
+        psycopg2
+
+* touch Procfile
+        Procfile >
+            web: gunicorn اسم الاب.wsgi --log-file -
+
+ * touch runtime.txt
+
+	ython -V
+        runtime > 
+            python-3.8.5
+    * allowed hosts @settings 
+        ALLOWED_HOSTS = ['127.0.0.1','.localhost', 'اسم الاب.herokuapp.com]
+    * remove the .env from .ignore 
+    
+    * deploy code to heroku >> use git automatice after push 
+
+    * after deploy 
+        heroku git:remote -a mealrater
+        heroku run python3 manage.py migrate 
+        heroku run python3 manage.py createsuperuser
