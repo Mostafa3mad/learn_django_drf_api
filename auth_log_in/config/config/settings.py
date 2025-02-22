@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'user_auth',
     'register_user',
 
+
     'drf_yasg',
 
     "rest_framework.authtoken",
@@ -63,7 +64,7 @@ INSTALLED_APPS = [
 
 
 ]
-AUTH_USER_MODEL = 'user_auth.CustomUser'
+AUTH_USER_MODEL = 'register_user.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
