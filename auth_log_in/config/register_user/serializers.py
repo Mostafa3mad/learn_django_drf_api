@@ -6,6 +6,7 @@ class CustomRegisterUserSerializer(DefaultRegisterUserSerializer):
     def to_representation(self, instance):
         data = super().to_representation(instance)
         refresh = RefreshToken.for_user(instance)
+        data["role"] = getattr(instance, "role", None)
         data["refresh"] = str(refresh)
         data["access_token"] = str(refresh.access_token)
         data.pop('password', None)
