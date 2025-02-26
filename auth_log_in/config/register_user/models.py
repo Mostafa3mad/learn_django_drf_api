@@ -13,7 +13,7 @@ class CustomUser(AbstractUser):
     )
     email = models.EmailField(unique=True)
     role = models.CharField(max_length=15,choices=ROLE_CHOICES,default='patient',)
-    specialization = models.CharField(max_length=100, null=True, blank=True)
+    specialization = models.ForeignKey('Specialization', on_delete=models.SET_NULL, null=True, blank=True)
     consultation_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)  # سعر الكشف
     location = models.CharField(max_length=255, null=True, blank=True)
     is_approved = models.BooleanField(default=True)

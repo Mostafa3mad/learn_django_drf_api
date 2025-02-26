@@ -14,7 +14,7 @@ schema_view = get_schema_view(
         default_version='v1',
         description="Test API",
         terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="contact@myapi.com"),
+        contact=openapi.Contact(email="mostafa.3mad.salah@gmail.com"),
         license=openapi.License(name="BSD License"),
     ),
     public=True,
@@ -30,7 +30,8 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     # path('api/', include('user_auth.urls',namespace='user_auth')),
 
-    path('accounts/', include('register_user.urls',namespace='register_user')),
+    path('', include('register_user.urls',namespace='register_user')),
+    path('',include('rating.urls',namespace='rating')),
 
 
 

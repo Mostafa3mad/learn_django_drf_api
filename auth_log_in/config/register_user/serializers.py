@@ -2,7 +2,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_registration.api.serializers import DefaultRegisterUserSerializer,DefaultLoginSerializer
 from .models import CustomUser, Specialization
 from rest_framework import serializers
-
+from rating.models import DoctorReview
 
 class CustomRegisterUserSerializer(DefaultRegisterUserSerializer):
     specialization = serializers.PrimaryKeyRelatedField(queryset=Specialization.objects.all(), required=False)
@@ -59,13 +59,24 @@ class CustomRegisterUserSerializer(DefaultRegisterUserSerializer):
 
         return data
 
+#rate serializers
+class DoctorReviewSerializer(serializers.ModelSerializer):
+    patient_username = serializers.CharField(source='patient.username', read_only=True)
+    rating = serializers.IntegerField()
 
+    class Meta:
+        model = DoctorReview
+        fields = ['patient_username', 'rating', 'comment', 'created_at']
+        ref_name = 'RegisterUserDoctorReviewSerializer'  # تحديد ref_name بشكل صريح
 
 # show Specialization with doctor is_approved
 class DoctorSerializer(serializers.ModelSerializer):
+    reviews = DoctorReviewSerializer(source='doctor_reviews', many=True, read_only=True)  # إضافة التقييمات للطبيب
+    specialization = serializers.CharField(source='specialization.name', read_only=True)
+
     class Meta:
         model = CustomUser
-        fields = ['id', 'username', 'email','specialization','consultation_price', 'location',]
+        fields = ['id', 'username', 'email', 'specialization', 'consultation_price', 'location', 'reviews']
 
 
 
