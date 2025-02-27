@@ -52,13 +52,13 @@ INSTALLED_APPS = [
     'register_user',
     'django_filters',
     'rating',
+    'appointments',
 
 
 
 
 
     'drf_yasg',
-
 
 
 
